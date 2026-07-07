@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS teams;
+
+CREATE TABLE teams (
+    teamID INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE,
+    foundation_date DATE DEFAULT CURRENT_DATE
+);
+
+CREATE TABLE members (
+    memberID INTEGER PRIMARY KEY AUTOINCREMENT,
+    teamID INTEGER NOT NULL,
+    name TEXT,
+    email TEXT UNIQUE,
+    role TEXT,
+    FOREIGN KEY (teamID) REFERENCES teams(teamID)
+);
