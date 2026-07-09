@@ -24,17 +24,17 @@ The relational connection and constraints between the tables are mapped below:
 erDiagram
     TEAMS {
         INTEGER teamID PK "AUTOINCREMENT"
-        TEXT name UK "NOT NULL, UNIQUE"
+        TEXT name "NOT NULL, UNIQUE"
         DATE foundation_date "DEFAULT CURRENT_DATE"
     }
     MEMBERS {
         INTEGER memberID PK "AUTOINCREMENT"
         INTEGER teamID FK "NOT NULL"
         TEXT name
-        TEXT email UK "UNIQUE"
+        TEXT email "UNIQUE"
         TEXT role
     }
-    TEAMS ||--o{ MEMBERS : "houses"
+    TEAMS ||..o{ MEMBERS : "houses"
 ```
 
 ### 📖 Schema Structure and Fields Dictionary
